@@ -1,2 +1,26 @@
 # Created by venv; see https://docs.python.org/3/library/venv.html
+# Entorno virtual
 venv/
+ENV/
+
+# Archivos de Python compilados
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Configuración local de VS Code
+.vscode/
+
+# Archivos de base de datos temporales
+*.sqlite3
+
+# Logs
+*.log
+
+# Archivos de entorno
+.env
