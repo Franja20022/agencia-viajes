@@ -13,7 +13,12 @@ conn = pyodbc.connect(
 )
 
 @app.route('/')
-def index():
+def inicio():
+    return render_template('inicio.html')
+
+
+@app.route('/agencia')
+def agencia():
     cursor = conn.cursor()
     cursor.execute("SELECT Id, destino, descripcion, precio, imagen FROM PaquetesViaje")
 
@@ -23,7 +28,16 @@ def index():
     # Convertir cada fila en un diccionario
     PaquetesViaje = [dict(zip(columns, row)) for row in cursor.fetchall()]
 
-    return render_template('index.html', PaquetesViaje=PaquetesViaje)
+    return render_template('agencia.html', PaquetesViaje=PaquetesViaje)
+
+@app.route('/mirador360')
+def negocio_mirador360():
+    return render_template('mirador360.html')
+
+@app.route('/experiencias')
+def negocio_experiencias():
+    return render_template('experiencias.html')
+
 
 # Rutas para envio de formulario de consulta
 @app.route('/consulta', methods=['POST'])

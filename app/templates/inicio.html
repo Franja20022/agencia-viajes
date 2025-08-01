@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5 text-center">
+  <h1 class="display-4 text-success mb-4">Bienvenido a Get Move</h1>
+  <p class="lead mb-5">Explorá nuestras experiencias únicas y servicios turísticos</p>
+
+  <!-- 🔽 Menú desplegable central -->
+  <div class="dropdown">
+    <button class="btn btn-success btn-lg dropdown-toggle" type="button" id="menuPrincipal" data-bs-toggle="dropdown" aria-expanded="false">
+      Elegí una sección
+    </button>
+    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="menuPrincipal">
+      <li><a class="dropdown-item" href="{{ url_for('agencia') }}">Agencia de Viajes</a></li>
+      <li><a class="dropdown-item" href="{{ url_for('negocio_mirador360') }}">Mirador 360</a></li>
+      <li><a class="dropdown-item" href="{{ url_for('negocio_experiencias') }}">Experiencias</a></li>
+    </ul>
+  </div>
+
+  <!-- 🖼️ Imagen decorativa -->
+  <div class="mt-5">
+    <img src="{{ url_for('static', filename='img/inicio.jpg') }}" alt="Get Move Inicio" class="img-fluid rounded shadow">
+  </div>
+</div>
+{% endblock %}
