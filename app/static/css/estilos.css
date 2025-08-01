@@ -59,7 +59,7 @@
 }
 
 .main-nav .nav-link:hover {
-  background-color: #003366;
+  background-color: orange;
   border-radius: 5px;
 }
 
@@ -153,4 +153,31 @@ footer {
   background-color: rgba(255, 255, 255, 0.1);
   color: black;
   border: none;
+}
+
+/* 🔘 Botón flotante de WhatsApp */
+.whatsapp-float {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  width: 60px;
+  height: 60px;
+  background-color: #25D366;
+  color: white;
+  border-radius: 50%;
+  font-size: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+  text-decoration: none;
+}
+
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  background-color: #1ebe5d;
+  text-decoration: none;
 }
