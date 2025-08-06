@@ -1,0 +1,19 @@
+/* Página de confirmación de consulta enviada */
+body {
+  background-color: #f8f9fa;
+}
+
+.alert-success {
+  font-size: 1rem;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.alert-success h4 {
+  font-weight: bold;
+  color: #198754;
+}
+
+.btn-primary {
+  margin-top: 20px;
+}

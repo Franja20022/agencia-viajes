@@ -1,0 +1,91 @@
+/* 🔷 Menú principal */
+.main-nav {
+  background-color: green;
+  position: relative;
+  width: 100%;
+}
+
+.main-nav .container-fluid {
+  justify-content: flex-start !important; /* Alinea el contenido a la izquierda */
+}
+
+.navbar-nav {
+  flex-direction: row;
+  align-items: center;
+}
+
+/* 🔘 Ícono de menú hamburguesa */
+.menu-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px; /* Tamaño del texto "MENÚ" */
+}
+
+.menu-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.menu-lines span {
+  display: block;
+  width: 30px;
+  height: 3px;
+  background-color: #ffc107;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+/* 🔧 Oculta la flecha automática del dropdown-toggle */
+.navbar .dropdown-toggle::after {
+  display: none !important;
+}
+
+/* 🔄 Animación del ícono hamburguesa a "X" */
+
+/* Estado normal */
+.menu-lines .line1 {
+  transform: rotate(0deg);
+}
+.menu-lines .line2 {
+  opacity: 1;
+}
+.menu-lines .line3 {
+  transform: rotate(0deg);
+}
+
+/* Estado activo: cuando el menú está abierto */
+a[aria-expanded="true"] .menu-lines .line1 {
+  transform: rotate(45deg) translateY(8px);
+}
+a[aria-expanded="true"] .menu-lines .line2 {
+  opacity: 0;
+}
+a[aria-expanded="true"] .menu-lines .line3 {
+  transform: rotate(-45deg) translateY(-8px);
+}
+
+
+/* 🔻 Fondo y texto del dropdown */
+.dropdown-menu {
+  background-color: green; /* Fondo oscuro personalizado */
+  color: #ffc107;         /* Color de texto dorado */
+  border: none;           /* Opcional: elimina el borde */
+}
+
+/* 🖋 Estilo de los ítems dentro del dropdown */
+.dropdown-menu .dropdown-item {
+  color: #ffc107;         /* Color del texto */
+  padding: 1px 8px;     /* Espaciado interno */
+  transition: background-color 0.3s ease;
+}
+
+/* 🟡 Hover sobre ítems */
+.dropdown-menu .dropdown-item:hover {
+  background-color: #444; /* Fondo al pasar el mouse */
+  color: #fff;            /* Texto blanco al hacer hover */
+}

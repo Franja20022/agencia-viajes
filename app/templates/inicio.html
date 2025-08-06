@@ -6,20 +6,41 @@
   <p class="lead mb-5">Explorá nuestras experiencias únicas y servicios turísticos</p>
 
   <!-- 🔽 Menú desplegable central -->
-  <div class="dropdown">
-    <button class="btn btn-success btn-lg dropdown-toggle" type="button" id="menuPrincipal" data-bs-toggle="dropdown" aria-expanded="false">
-      Elegí una sección
-    </button>
-    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="menuPrincipal">
-      <li><a class="dropdown-item" href="{{ url_for('agencia') }}">Agencia de Viajes</a></li>
-      <li><a class="dropdown-item" href="{{ url_for('negocio_mirador360') }}">Mirador 360</a></li>
-      <li><a class="dropdown-item" href="{{ url_for('negocio_experiencias') }}">Experiencias</a></li>
-    </ul>
+  <div class="row justify-content-center mt-5">
+  <!-- Agencia de Viajes -->
+  <div class="col-md-4 mb-4">
+    <a href="{{ url_for('agencia') }}">
+      <div class="card shadow-sm h-100">
+        <img src="{{ url_for('static', filename='img/agencia.jpg') }}" class="card-img-top" alt="GetMove Viajes y Turismo">
+        <div class="card-body">
+          <h5 class="card-title text-success">Get Move Viajes y Turismo</h5>
+        </div>
+      </div>
+    </a>
   </div>
 
-  <!-- 🖼️ Imagen decorativa -->
-  <div class="mt-5">
-    <img src="{{ url_for('static', filename='img/inicio.jpg') }}" alt="Get Move Inicio" class="img-fluid rounded shadow">
+  <!-- Mirador 360 -->
+  <div class="col-md-4 mb-4">
+    <a href="{{ url_for('negocio_mirador360') }}">
+      <div class="card shadow-sm h-100">
+        <img src="{{ url_for('static', filename='img/mirador360.jpg') }}" class="card-img-top" alt="Mirador 360">
+        <div class="card-body">
+          <h5 class="card-title text-warning">Mirador 360</h5>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <!-- Experiencias -->
+  <div class="col-md-4 mb-4">
+    <a href="{{ url_for('negocio_experiencias') }}">
+      <div class="card shadow-sm h-100">
+        <img src="{{ url_for('static', filename='img/experiencias.jpg') }}" class="card-img-top" alt="Experiencias">
+        <div class="card-body">
+          <h5 class="card-title text-primary">Experiencias</h5>
+        </div>
+      </div>
+    </a>
   </div>
 </div>
 {% endblock %}

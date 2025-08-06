@@ -6,7 +6,9 @@
   <title>Get Move</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/inicio.css') }}">
 </head>
 <body>
 
@@ -25,28 +27,95 @@
     </div>
   </header>
 
-  <!-- 🔷 Menú principal-->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-success py-2 px-3">
-    <div class="container-fluid justify-content-center">
-      <ul class="navbar-nav flex-wrap justify-content-center">
-        <!--🔽 Menú desplegable -->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle text-warning fw-bold" href="#" id="menuDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Menú
+  <!-- 🔷 Menú principal -->
+  <nav class="navbar navbar-expand-lg navbar-dark main-nav">
+    <div class="container-fluid justify-content-start">
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown text-start">
+          <a class="nav-link dropdown-toggle menu-icon text-warning fw-bold" href="#" id="menuDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            MENÚ
+            <div class="menu-lines mt-1">
+              <span class="line1"></span>
+              <span class="line2"></span>
+              <span class="line3"></span>
+            </div>
           </a>
-          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="menuDropdown">
-            <li><a class="dropdown-item" href="{{ url_for('agencia') }}">Agencia de Viajes</a></li>
-            <li><a class="dropdown-item" href="{{ url_for('negocio_mirador360') }}">Mirador 360</a></li>
-            <li><a class="dropdown-item" href="{{ url_for('negocio_experiencias') }}">Experiencias</a></li>
+          <ul class="dropdown-menu dropdown-menu-dark text-start" aria-labelledby="menuDropdown">
+            {% if request.endpoint != 'inicio' %}
+              <li><a class="dropdown-item fw-bold" href="{{ url_for('inicio') }}">Inicio</a></li>
+            {% endif %}
+            <li><a class="dropdown-item fw-bold" href="{{ url_for('agencia') }}">Agencia de Viajes</a></li>
+            <li><a class="dropdown-item fw-bold" href="{{ url_for('negocio_mirador360') }}">Mirador 360</a></li>
+            <li><a class="dropdown-item fw-bold" href="{{ url_for('negocio_experiencias') }}">Experiencias</a></li>
           </ul>
         </li>
       </ul>
     </div>
   </nav>
 
+  <!-- 🔘 Botón flotante de WhatsApp -->
+  <a href="https://wa.me/5493513448001" target="_blank" class="whatsapp-float" title="Contáctanos por WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+  </a>
+
   <!-- 🔽 Contenido dinámico -->
-  {% block content %}
-  {% endblock %}
+  <div class="content-wrapper">
+    {% block content %}
+    {% endblock %}
+  </div>
+
+  <!-- 📞 Footer -->
+  <footer class="footer text-white pt-5 pb-4">
+    <div class="container">
+      <div class="row">
+
+        <!-- Logo y redes -->
+        <div class="col-md-3 mb-4">
+          <h5 class="mb-3">VIAJES <span class="logo">Get Move - Agencia</span></h5>
+          <div class="social-icons">
+            <a href="#"><i class="bi bi-pinterest"></i></a>
+            <a href="#"><i class="bi bi-twitter-x"></i></a>
+            <a href="https://www.instagram.com/get.move.cba/" target="_blank" rel="noopener noreferrer">
+              <i class="bi bi-instagram"></i>
+            </a>
+            <a href="#"><i class="bi bi-youtube"></i></a>
+            <a href="#"><i class="bi bi-tiktok"></i></a>
+          </div>
+        </div>
+
+        <!-- Sobre nosotros -->
+        <div class="col-md-3 mb-4">
+          <h5>Sobre nosotros</h5>
+          <ul class="list-unstyled">
+            <li><a href="#">Quiénes somos</a></li>
+            <li><a href="#">Turismo sostenible</a></li>
+            <li><a href="#">Turismo accesible</a></li>
+          </ul>
+        </div>
+
+        <!-- Enlaces de interés -->
+        <div class="col-md-3 mb-4">
+          <h5>Enlaces de interés</h5>
+          <ul class="list-unstyled">
+            <li><a href="#">Guías de viaje</a></li>
+            <li><a href="#">Catálogos</a></li>
+            <li><a href="#">Condiciones Generales</a></li>
+            <li><a href="#">Política de privacidad</a></li>
+            <li><a href="#">Política de cookies</a></li>
+            <li><a href="#">Empresas / Grupos</a></li>
+          </ul>
+        </div>
+
+        <!-- Internacional y blog -->
+        <div class="col-md-3 mb-4">
+          <p>Visita nuestro blog</p>
+          <a href="#" class="text-white text-decoration-underline">Blog de Get Move <i class="bi bi-box-arrow-up-right"></i></a>
+        </div>
+      </div>
+
+      <p class="mb-0 text-center">© Get Move 2025. Todos los derechos reservados.</p>
+    </div>
+  </footer>
 
   <!-- 🔧 Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

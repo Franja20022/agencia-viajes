@@ -1,0 +1,14 @@
+/* Estilos para la sección de experiencias */
+.experiencias-container {
+  margin-top: 50px;
+}
+
+.experiencias-container h2 {
+  color: #0d6efd; /* Bootstrap primary */
+  font-weight: bold;
+}
+
+.experiencias-container p {
+  font-size: 1rem;
+  color: #444;
+}

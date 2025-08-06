@@ -1,164 +1,58 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Agencia de Viajes</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
-</head>
+{% extends "base.html" %}
 
-  <body>
+{% block head %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css') }}">
 
-    <!-- 🔷 Encabezado superior -->
-    <header class="top-header py-2 px-3 d-flex justify-content-between align-items-center">
-      <div class="logo d-flex align-items-center">
-        <img src="{{ url_for('static', filename='img/logo.jpg') }}" alt="Logo Get Move" class="logo-img me-2">
-        <h1 class="m-0">Viajes Get Move</h1>
-      </div>
-      <div class="contact-info d-none d-md-flex align-items-center">
-        <a href="#" class="me-3">Centro de ayuda</a>
-        <a href="#" class="me-3">Identifícate</a>
-        <!-- ✅ WhatsApp con enlace directo -->
-        <a href="https://wa.me/5435112345678" target="_blank" rel="noopener noreferrer" class="phone fw-bold text-success">
-        <i class="bi bi-whatsapp me-1"></i> +54 351 1234 5678
-        </a>
-      </div>
-    </header>
+{% endblock %}
 
-    <!-- 🔷 Menú principal -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-success py-2 px-3">
-      <div class="container-fluid justify-content-center">
-        <ul class="navbar-nav flex-wrap justify-content-center">
-          <li class="nav-item"><a class="nav-link text-white" href="#">VERANO</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="#">PROMOCIONES</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="#">GRANDES VIAJES</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="#">CRUCEROS</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="#">PAQUETES</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="#">ALOJAMIENTO</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="#">CIRCUITOS</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="#">VUELOS</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="#">CARIBE</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="#">INTERNACIONAL</a></li>
-
-          <!-- 🔽 Menú desplegable -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-warning fw-bold" href="#" id="menuDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Menu
-            </a>
-            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="menuDropdown">
-              <li><a class="dropdown-item" href="{{ url_for('inicio') }}">Inicio</a></li>
-              <li><a class="dropdown-item" href="{{ url_for('negocio_mirador360') }}">Mirador 360</a></li>
-              <li><a class="dropdown-item" href="{{ url_for('negocio_experiencias') }}">Experiencias</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </nav>
-
-
-    <!-- 🖼️ Banner principal -->
-    <div class="container-fluid p-0">
-      <div class="bg-image banner-playa">
-        <div class="overlay d-flex justify-content-center align-items-center">
-          <div class="content text-white text-center">
-            <h1 class="display-4">OFERTAS Verano</h1>
-            <p class="lead">Salidas en Agosto, Septiembre y Octubre</p>
-          </div>
-        </div>
-      </div>
+{% block content %}
+  <!-- 🔷 Menú principal personalizado -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-success py-2 px-3">
+    <div class="container-fluid justify-content-center">
+      <ul class="navbar-nav flex-wrap justify-content-center">
+        <li class="nav-item"><a class="nav-link text-white" href="#">VERANO</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="#">PROMOCIONES</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="#">GRANDES VIAJES</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="#">CRUCEROS</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="#">PAQUETES</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="#">ALOJAMIENTO</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="#">CIRCUITOS</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="#">VUELOS</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="#">CARIBE</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="#">INTERNACIONAL</a></li>
+      </ul>
     </div>
+  </nav>
 
-    <!-- 🧳 Cards de paquetes -->
-<div class="container mt-5">
-    <div class="row">
-        {% for paquete in PaquetesViaje %}
-            <div class="col-md-4 mb-4">
-                <div class="card h-100 shadow-sm">
-                    <img src="{{ url_for('static', filename='img/' + paquete['imagen']) }}" alt="{{ paquete['destino'] }}">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ paquete['destino'] }}</h5>
-                        <p class="card-text">{{ paquete['descripcion'] }}</p>
-                        <p class="text-primary fw-bold">${{ paquete['precio'] }}</p>
-                        <a href="{{ url_for('consulta', paquete_id=paquete['Id']) }}" class="btn btn-outline-info">Consultar</a>
-                    </div>
-                </div>
-            </div>
-        {% endfor %}
-    </div>
-</div>
-
-    <!-- 📞 Footer -->
-<footer class="footer text-white pt-5 pb-4">
-  <div class="container">
-    <div class="row">
-
-      <!-- Logo y redes -->
-      <div class="col-md-3 mb-4">
-        <h5 class="mb-3">VIAJES <span class="logo">Get Move - Agencia</span></h5>
-        <div class="social-icons">
-          <a href="#"><i class="bi bi-pinterest"></i></a>
-          <a href="#"><i class="bi bi-twitter-x"></i></a>
-          <a href="https://www.instagram.com/get.move.cba/" target="_blank" rel="noopener noreferrer">
-           <i class="bi bi-instagram"></i>
-          </a>
-          <a href="#"><i class="bi bi-youtube"></i></a>
-          <a href="#"><i class="bi bi-tiktok"></i></a>
+  <!-- 🖼️ Banner principal -->
+  <div class="container-fluid p-0">
+    <div class="bg-image banner-playa">
+      <div class="overlay d-flex justify-content-center align-items-center">
+        <div class="content text-white text-center">
+          <h1 class="display-4">OFERTAS Verano</h1>
+          <p class="lead">Salidas en Agosto, Septiembre y Octubre</p>
         </div>
-      </div>
-
-      <!-- Sobre nosotros -->
-      <div class="col-md-3 mb-4">
-        <h5>Sobre nosotros</h5>
-        <ul class="list-unstyled">
-          <li><a href="#">Quiénes somos</a></li>
-          <li><a href="#">Turismo sostenible</a></li>
-          <li><a href="#">Turismo accesible</a></li>
-        </ul>
-      </div>
-
-      <!-- Enlaces de interés -->
-      <div class="col-md-3 mb-4">
-        <h5>Enlaces de interés</h5>
-        <ul class="list-unstyled">
-          <li><a href="#">Guías de viaje</a></li>
-          <li><a href="#">Catálogos</a></li>
-          <li><a href="#">Condiciones Generales</a></li>
-          <li><a href="#">Política de privacidad</a></li>
-          <li><a href="#">Política de cookies</a></li>
-          <li><a href="#">Empresas / Grupos</a></li>
-        </ul>
-      </div>
-
-      <!-- Internacional y blog--> 
-      <div class="col-md-3 mb-4">
-        <!--<h5>Internacional</h5>
-        <select class="form-select mb-3">
-          <option selected>España</option>
-          <option>Argentina</option>
-          <option>Chile</option>
-          <option>México</option>
-        </select>-->
-        <p>Visita nuestro blog</p>
-        <a href="#" class="text-white text-decoration-underline">Blog de Get Move <i class="bi bi-box-arrow-up-right"></i></a>
-      </div>
-
-      <div class="container">
-      <p class="mb-0">© Get Move 2025. Todos los derechos reservados.</p>
       </div>
     </div>
   </div>
-</footer>
 
-    <!-- 🔘 Botón flotante de WhatsApp -->
-    <a href="https://wa.me/5435112345678" target="_blank" class="whatsapp-float" title="Contáctanos por WhatsApp">
-      <i class="bi bi-whatsapp"></i>
-    </a>
-
-    <!-- Bootstrap JS y dependencias -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-
-  </body>
-</html>
+  <!-- 🧳 Cards de paquetes -->
+  <div class="container mt-5">
+    <div class="row">
+      {% for paquete in PaquetesViaje %}
+        <div class="col-md-4 mb-4">
+          <div class="card h-100 shadow-sm">
+            <img src="{{ url_for('static', filename='img/' + paquete['imagen']) }}" alt="{{ paquete['destino'] }}">
+            <div class="card-body">
+              <h5 class="card-title">{{ paquete['destino'] }}</h5>
+              <p class="card-text">{{ paquete['descripcion'] }}</p>
+              <p class="text-primary fw-bold">${{ paquete['precio'] }}</p>
+              <a href="{{ url_for('consulta', paquete_id=paquete['Id']) }}" class="btn btn-outline-info">Consultar</a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,83 @@
+/* 🔷 Banner de fondo */
+.bg-image {
+  position: relative;
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+}
+
+.banner-playa {
+  background-image: url("../img/banner-playa.jpg");
+}
+
+.bg-image .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.bg-image .content {
+  position: relative;
+  z-index: 2;
+}
+
+/* 🟩 Cards generales */
+.card {
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.card-img-top {
+  height: 600px; /* Ajustá según lo que se vea mejor */
+  object-fit: cover;
+  width: 100%;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+.card-title {
+  font-weight: bold;
+}
+
+.card-text {
+  font-size: 0.95rem;
+}
+
+/* 🟢 Hover suave en cards */
+.card:hover {
+  transform: scale(1.02);
+  transition: transform 0.3s ease;
+}
+
+/* 🟢 Sombra suave */
+.card.shadow-sm {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* 🟢 Botón flotante de WhatsApp */
+.whatsapp-float {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  width: 60px;
+  height: 60px;
+  background-color: #25D366;
+  color: white;
+  border-radius: 50%;
+  font-size: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+  text-decoration: none;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  background-color: #1ebe5d;
+}

@@ -1,7 +1,11 @@
 {% extends "base.html" %}
+{% block head %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/experiencias.css') }}">
+{% endblock %}
 {% block content %}
-<div class="container mt-5">
-  <h2 class="text-primary">Experiencias</h2>
+<div class="container experiencias-container">
+  <h2>Experiencias</h2>
   <p>circuitos, monopatines, bicicletas</p>
 </div>
 {% endblock %}
+

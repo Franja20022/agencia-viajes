@@ -1,7 +1,11 @@
 {% extends "base.html" %}
+{% block head %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/mirador360.css') }}">
+{% endblock %}
 {% block content %}
-<div class="container mt-5">
-  <h2 class="text-success">Mirador 360</h2>
+<div class="container mirador360-container">
+  <h2>Mirador 360</h2>
   <p>Información sobre el Mirador etc.</p>
 </div>
 {% endblock %}
+

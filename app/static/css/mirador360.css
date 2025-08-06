@@ -1,0 +1,14 @@
+/* Estilos específicos para la sección Mirador 360 */
+.mirador360-container {
+  margin-top: 50px;
+}
+
+.mirador360-container h2 {
+  color: #198754; /* Bootstrap success */
+  font-weight: bold;
+}
+
+.mirador360-container p {
+  font-size: 1rem;
+  color: #333;
+}
