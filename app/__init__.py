@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 from .db import conn, init_db
+import sqlite3
 
 app = Flask(__name__)
 init_db()  # Crea tablas si usás SQLite
@@ -59,3 +60,13 @@ def consulta(paquete_id):
         return render_template('consulta.html', paquete=paquete)
     else:
         return "Paquete no encontrado", 404
+
+
+@app.route('/debug-db')
+def debug_db():
+    conn = sqlite3.connect('nombre_de_tu_base.db')
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM paquetes")  # Cambiá 'paquetes' por tu tabla real
+    rows = cursor.fetchall()
+    conn.close()
+    return {'datos': rows}
