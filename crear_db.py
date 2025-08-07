@@ -16,3 +16,4 @@ CREATE TABLE PaquetesViaje (
 
 conn.commit()
 print("✅ Tabla creada con éxito")
+
