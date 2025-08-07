@@ -10,10 +10,10 @@ with app.app_context():
 
     if not PaquetesViaje.query.first():
         demo = PaquetesViaje(
-            Destino="Bariloche",
-            Descripcion="Paquete de 5 días con excursiones",
-            Precio=120000.00,
-            Imagen="bariloche.jpg"
+            destino="Bariloche",
+            descripcion="Paquete de 5 días con excursiones",
+            precio=120000.00,
+            imagen="bariloche.jpg"
         )
         db.session.add(demo)
         db.session.commit()
