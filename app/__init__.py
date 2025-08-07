@@ -11,7 +11,9 @@ db_engine = os.getenv("DB_ENGINE", "sqlserver")  # Por defecto usa SQL Server
 
 if db_engine == "sqlite":
     import sqlite3
-    conn = sqlite3.connect("database/mydb.db")
+    db_path = os.path.join(os.path.dirname(__file__), '..', 'database', 'mydb.db')
+    os.makedirs(os.path.dirname(db_path), exist_ok=True)
+    conn = sqlite3.connect(db_path)
 else:
     import pyodbc
     conn = pyodbc.connect(
