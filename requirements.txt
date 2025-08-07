@@ -1,1 +1,4 @@
-Flask, SQLAlchemy, python-dotenv, pyodbc
+Flask
+SQLAlchemy
+python-dotenv
+pyodbc
