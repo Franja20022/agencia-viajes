@@ -1,44 +1,19 @@
-from flask import Flask, render_template
-from flask import request, redirect, url_for
-import pyodbc
-import os
-
+from flask import Flask, render_template, request, redirect, url_for
+from .db import conn, init_db
 
 app = Flask(__name__)
-
-# Conexión directa con SQL
-db_engine = os.getenv("DB_ENGINE", "sqlserver")  # Por defecto usa SQL Server
-
-if db_engine == "sqlite":
-    import sqlite3
-    db_path = os.path.join(os.path.dirname(__file__), '..', 'database', 'mydb.db')
-    os.makedirs(os.path.dirname(db_path), exist_ok=True)
-    conn = sqlite3.connect(db_path)
-else:
-    import pyodbc
-    conn = pyodbc.connect(
-        'DRIVER={ODBC Driver 17 for SQL Server};'
-        'SERVER=MSI\\SQLEXPRESS;'
-        'DATABASE=AgenciaViajes;'
-        'Trusted_Connection=yes;'
-    )
+init_db()  # Crea tablas si usás SQLite
 
 @app.route('/')
 def inicio():
     return render_template('inicio.html')
 
-
 @app.route('/agencia')
 def agencia():
     cursor = conn.cursor()
     cursor.execute("SELECT Id, destino, descripcion, precio, imagen FROM PaquetesViaje")
-
-    # Obtener nombres de columnas
     columns = [column[0] for column in cursor.description]
-
-    # Convertir cada fila en un diccionario
     PaquetesViaje = [dict(zip(columns, row)) for row in cursor.fetchall()]
-
     return render_template('agencia.html', PaquetesViaje=PaquetesViaje)
 
 @app.route('/mirador360')
@@ -49,15 +24,12 @@ def negocio_mirador360():
 def negocio_experiencias():
     return render_template('experiencias.html')
 
-
-# Rutas para envio de formulario de consulta
 @app.route('/consulta', methods=['POST'])
 def enviar_consulta():
     paquete_id = request.form.get('paquete_id')
     destino = request.form.get('destino')
     descripcion = request.form.get('descripcion')
     precio = request.form.get('precio')
-
     nombre = request.form.get('nombre')
     email = request.form.get('email')
     whatsapp = request.form.get('whatsapp')
