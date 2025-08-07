@@ -1,16 +1,25 @@
 from flask import Flask, render_template
 from flask import request, redirect, url_for
 import pyodbc
+import os
+
 
 app = Flask(__name__)
 
-# Conexión directa con SQL Server
-conn = pyodbc.connect(
-    'DRIVER={ODBC Driver 17 for SQL Server};'
-    'SERVER=MSI\\SQLEXPRESS;'
-    'DATABASE=AgenciaViajes;'
-    'Trusted_Connection=yes;'
-)
+# Conexión directa con SQL
+db_engine = os.getenv("DB_ENGINE", "sqlserver")  # Por defecto usa SQL Server
+
+if db_engine == "sqlite":
+    import sqlite3
+    conn = sqlite3.connect("database/mydb.db")
+else:
+    import pyodbc
+    conn = pyodbc.connect(
+        'DRIVER={ODBC Driver 17 for SQL Server};'
+        'SERVER=MSI\\SQLEXPRESS;'
+        'DATABASE=AgenciaViajes;'
+        'Trusted_Connection=yes;'
+    )
 
 @app.route('/')
 def inicio():
