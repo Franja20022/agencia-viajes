@@ -64,9 +64,9 @@ def consulta(paquete_id):
 
 @app.route('/debug-db')
 def debug_db():
-    conn = sqlite3.connect('nombre_de_tu_base.db')
+    conn = sqlite3.connect('mydb.db')
     cursor = conn.cursor()
-    cursor.execute("SELECT * FROM paquetes")  # Cambiá 'paquetes' por tu tabla real
+    cursor.execute("SELECT * FROM PaquetesViaje")  # Cambiá 'paquetes' por tu tabla real
     rows = cursor.fetchall()
     conn.close()
     return {'datos': rows}
