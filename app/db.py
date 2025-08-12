@@ -6,7 +6,8 @@ if db_engine == "sqlite":
     import sqlite3
     db_path = os.path.join(os.path.dirname(__file__), '..', 'database', 'mydb.db')
     os.makedirs(os.path.dirname(db_path), exist_ok=True)
-    conn = sqlite3.connect(db_path, check_same_thread=False)
+    conn = sqlite3.connect("app/viajes.db")
+    #conn = sqlite3.connect(db_path, check_same_thread=False)
 
     def init_db():
         cursor = conn.cursor()
