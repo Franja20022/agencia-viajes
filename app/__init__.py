@@ -53,10 +53,11 @@ def consulta_enviada():
 @app.route('/consulta/<int:paquete_id>', methods=['GET'])
 def consulta(paquete_id):
     cursor = conn.cursor()
-    cursor.execute("SELECT Id, destino, descripcion, precio FROM PaquetesViaje WHERE Id = ?", paquete_id)
+    cursor.execute("SELECT Id, destino, descripcion, precio FROM PaquetesViaje WHERE Id = ?", (paquete_id,))
     paquete = cursor.fetchone()
 
     if paquete:
         return render_template('consulta.html', paquete=paquete)
     else:
+        print(f"⚠️ Paquete con ID {paquete_id} no encontrado")
         return "Paquete no encontrado", 404
