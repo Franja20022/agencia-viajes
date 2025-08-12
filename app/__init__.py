@@ -5,6 +5,26 @@ import sqlite3
 app = Flask(__name__)
 init_db()  # Crea tablas si usás SQLite
 
+# 🔁 Cargar datos demo si la tabla está vacía
+def cargar_paquete_demo():
+    cursor = conn.cursor()
+    cursor.execute("SELECT COUNT(*) FROM PaquetesViaje")
+    count = cursor.fetchone()[0]
+
+    if count == 0:
+        cursor.execute("""
+            INSERT INTO PaquetesViaje (destino, descripcion, precio, imagen)
+            VALUES (?, ?, ?, ?)
+        """, (
+            "Bariloche",
+            "Paquete de 5 días con excursiones",
+            120000.00,
+            "bariloche.jpg"
+        ))
+        conn.commit()
+        print("✅ Paquete demo cargado en SQLite")
+
+
 @app.route('/')
 def inicio():
     return render_template('inicio.html')
@@ -60,13 +80,3 @@ def consulta(paquete_id):
         return render_template('consulta.html', paquete=paquete)
     else:
         return "Paquete no encontrado", 404
-
-
-@app.route('/debug-db')
-def debug_db():
-    conn = sqlite3.connect('mydb.db')
-    cursor = conn.cursor()
-    cursor.execute("SELECT * FROM PaquetesViaje")  # Cambiá 'paquetes' por tu tabla real
-    rows = cursor.fetchall()
-    conn.close()
-    return {'datos': rows}
