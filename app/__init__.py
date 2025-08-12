@@ -38,7 +38,7 @@ def enviar_consulta():
 
     cursor = conn.cursor()
     cursor.execute("""
-        INSERT INTO Consultas (PaqueteId, Nombre, Email, Whatsapp, Mensaje)
+        INSERT INTO Consultas (paqueteId, nombre, email, whatsapp, mensaje)
         VALUES (?, ?, ?, ?, ?)
     """, (paquete_id, nombre, email, whatsapp, mensaje))
     conn.commit()
