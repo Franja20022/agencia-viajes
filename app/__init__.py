@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 from .db import conn, init_db
 import sqlite3
+from types import SimpleNamespace
 
 app = Flask(__name__)
 init_db()  # Crea tablas si usás SQLite
@@ -54,10 +55,14 @@ def consulta_enviada():
 def consulta(paquete_id):
     cursor = conn.cursor()
     cursor.execute("SELECT Id, destino, descripcion, precio FROM PaquetesViaje WHERE Id = ?", (paquete_id,))
-    paquete = cursor.fetchone()
+    row = cursor.fetchone()
 
-    if paquete:
+    if row:
+        columns = [column[0] for column in cursor.description]
+        paquete = SimpleNamespace(**dict(zip(columns, row)))
         return render_template('consulta.html', paquete=paquete)
     else:
         print(f"⚠️ Paquete con ID {paquete_id} no encontrado")
         return "Paquete no encontrado", 404
+
+
