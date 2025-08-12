@@ -1,6 +1,6 @@
 from flask import Flask
 from app.database import init_app, db
-from app.models_for_render import PaquetesViaje, Consultas   # Importá todos tus modelos
+from app.models_for_render import PaquetesViaje, Consultas  # Importá todos tus modelos
 
 app = Flask(__name__)
 init_app(app)
@@ -10,10 +10,10 @@ with app.app_context():
 
     if not PaquetesViaje.query.first():
         demo = PaquetesViaje(
-            destino="Bariloche",
-            descripcion="Paquete de 5 días con excursiones",
-            precio=120000.00,
-            imagen="bariloche.jpg"
+            Destino="Bariloche",
+            Descripcion="Paquete de 5 días con excursiones",
+            Precio=120000.00,
+            Imagen="bariloche.jpg"
         )
         db.session.add(demo)
         db.session.commit()
