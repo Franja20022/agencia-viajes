@@ -5,26 +5,6 @@ import sqlite3
 app = Flask(__name__)
 init_db()  # Crea tablas si usás SQLite
 
-# 🔁 Cargar datos demo si la tabla está vacía
-def cargar_paquete_demo():
-    cursor = conn.cursor()
-    cursor.execute("SELECT COUNT(*) FROM PaquetesViaje")
-    count = cursor.fetchone()[0]
-
-    if count == 0:
-        cursor.execute("""
-            INSERT INTO PaquetesViaje (destino, descripcion, precio, imagen)
-            VALUES (?, ?, ?, ?)
-        """, (
-            "Bariloche",
-            "Paquete de 5 días con excursiones",
-            120000.00,
-            "bariloche.jpg"
-        ))
-        conn.commit()
-        print("✅ Paquete demo cargado en SQLite")
-
-
 @app.route('/')
 def inicio():
     return render_template('inicio.html')
