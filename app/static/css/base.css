@@ -5,47 +5,53 @@
   font-size: 0.9rem;
 }
 
-.top-header .logo h1 {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: darkgreen;
-}
-
-.top-header a {
-  color: black;
-  text-decoration: none;
-  font-size: medium;
-}
-
-.top-header a:hover {
-  text-decoration: underline;
-}
-
+/* Logo + nombre */
 .logo-img {
   height: 80px;
   width: auto;
   border-radius: 100px;
-  display: inline-block;
 }
 
-/* 🔷 WhatsApp */
-.contact-info a.phone {
+.logo h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: darkgreen;
+  margin: 0;
+}
+
+/* Contacto */
+.contact-info a {
+  color: black;
+  text-decoration: none;
+  font-size: medium;
+  margin-bottom: 4px;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+.phone {
   color: #25D366;
   font-weight: bold;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
-.contact-info a.phone i.bi-whatsapp {
-  font-size: 1.2rem;
-  vertical-align: middle;
-}
-
-.contact-info a.phone:hover {
+.phone:hover {
   color: #128C7E;
   text-decoration: underline;
 }
 
+.phone i.bi-whatsapp {
+  color: #25D366;
+  font-size: 1.2rem;
+  vertical-align: middle;
+}
+
+
+
+/* 🔷 Menú hamburguesa */
 .menu-icon {
   display: flex;
   flex-direction: column;
@@ -62,10 +68,9 @@
 .menu-lines span {
   width: 30px;
   height: 3px;
-  background-color: #ffc107; /* Amarillo */
+  background-color: #ffc107;
   border-radius: 2px;
 }
-
 
 /* 🔷 Footer */
 footer {
@@ -125,3 +130,21 @@ footer {
   color: black;
   border: none;
 }
+
+
+
+/* 🔷 Responsive ajustes */
+@media (max-width: 576px) {
+  .logo-img {
+    height: 40px;
+  }
+
+  .logo h1 {
+    font-size: 0.9rem;
+  }
+
+  .contact-info a {
+    font-size: 0.7rem;
+  }
+}
+
