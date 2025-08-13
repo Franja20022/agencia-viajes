@@ -146,5 +146,21 @@ footer {
   .contact-info a {
     font-size: 0.7rem;
   }
+
+  .col-md-3.mb-4 h5 {
+    font-size: 1rem;
+  }
+
+  .footer::before{
+    background-size: auto;
+  }
+
+  .footer a {
+    font-size: 0.8rem;
+  }
+
+  .mb-0{
+    font-size: 0.6rem;
+  }
 }
 
