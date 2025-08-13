@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS PaquetesViaje (
 """)
 
 # Cargar Consultas
-with open("Consultas.csv", newline='', encoding='utf-8-sig') as f:
+with open("archivos_csv/Consultas.csv", newline='', encoding='utf-8-sig') as f:
     reader = csv.DictReader(f, delimiter=';')
     reader.fieldnames = [key.strip() for key in reader.fieldnames]
     for row in reader:
@@ -56,7 +56,7 @@ with open("Consultas.csv", newline='', encoding='utf-8-sig') as f:
             print(f"❌ Fila inválida: {row} → {e}")
 
 # Cargar Paquetes
-with open("PaqueteViajes.csv", newline='', encoding='utf-8-sig') as f:
+with open("archivos_csv/PaqueteViajes.csv", newline='', encoding='utf-8-sig') as f:
     reader = csv.DictReader(f, delimiter=';')
     reader.fieldnames = [key.strip() for key in reader.fieldnames]
     for row in reader:

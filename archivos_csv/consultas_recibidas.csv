@@ -1,0 +1,16 @@
+nombre,email,mensaje,fecha,whatsapp
+ff,,prueba con sqlite en render,2025-08-07 17,5491112345678
+ff,franja20022@yahoo.com,aaa,2025-08-06 16,56789
+fjb,franja20022@yahoo.com,hola nueva,2025-08-05 18,11572222222
+ff,,re generacion,2025-08-01 19,5491112345678
+s,,ss,2025-08-01 12,5491112345678
+fff,,test 999,2025-08-01 11,5491112345678
+ff,,test4,2025-08-01 00,5491112345678
+ff,,test1000,2025-08-01 00,5491112345678
+ff,,colores,2025-08-01 00,5491112345678
+ff,,test whats app,2025-07-31 22,NULL
+ff,,bogota paquete,2025-07-31 22,NULL
+ff,f@gmail.com,test 3,2025-07-31 19,NULL
+ff,f@gmail.com,ff,2025-07-31 18,NULL
+fg,f@gmail.com,segunda consulta,2025-07-31 18,NULL
+ff,f@gmail.com,mensaje 3 paquete 2,2025-07-31 18,NULL
