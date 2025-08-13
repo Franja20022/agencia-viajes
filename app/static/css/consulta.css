@@ -1,68 +1,38 @@
-/* Fondo general */
+/* Página de confirmación de consulta enviada */
 body {
   background-color: #f8f9fa;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;
 }
 
-/* Contenedor principal */
-.container {
-  background-color: white;
-  border-radius: 8px;
-  padding: 30px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-/* Card de paquete */
-.card-header {
-  border-bottom: 1px solid #dee2e6;
-}
-
-.card-header h4 {
-  font-size: 1.4rem;
-  font-weight: bold;
-}
-
-.card-header p {
-  margin-bottom: 0.5rem;
-}
-
-/* Formulario */
-form label {
-  font-weight: 500;
-  color: #333;
-}
-
-form input,
-form textarea {
-  border-radius: 5px;
-  border: 1px solid #ced4da;
-  padding: 10px;
+.alert-success {
   font-size: 1rem;
+  padding: 30px;
+  border-radius: 10px;
 }
 
-form input:focus,
-form textarea:focus {
-  border-color: #198754;
-  box-shadow: 0 0 0 0.2rem rgba(25, 135, 84, 0.25);
+.alert-success h4 {
+  font-weight: bold;
+  color: #198754;
 }
 
-/* Botones */
-.btn-success {
-  background-color: #198754;
-  border-color: #198754;
+.btn-primary {
+  margin-top: 20px;
 }
 
-.btn-success:hover {
-  background-color: #157347;
-  border-color: #146c43;
-}
+/* Responsive ajustes */
+@media (max-width: 576px) {
+  .alert-success {
+    padding: 20px;
+    font-size: 0.95rem;
+  }
 
-.btn-secondary {
-  background-color: #6c757d;
-  border-color: #6c757d;
-}
+  .alert-success h4 {
+    font-size: 1.2rem;
+  }
 
-.btn-secondary:hover {
-  background-color: #5c636a;
-  border-color: #565e64;
+  .btn-primary {
+    width: 100%;
+    font-size: 1rem;
+  }
 }

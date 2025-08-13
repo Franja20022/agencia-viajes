@@ -43,7 +43,7 @@
       {% for paquete in PaquetesViaje %}
         <div class="col-md-4 mb-4">
           <div class="card h-100 shadow-sm">
-            <img src="{{ url_for('static', filename='img/' + paquete['imagen']) }}" alt="{{ paquete['destino'] }}">
+            <img src="{{ url_for('static', filename='img/' + paquete['imagen']) }}" class="img-fluid" alt="{{ paquete['destino'] }}">
             <div class="card-body">
               <h5 class="card-title">{{ paquete['destino'] }}</h5>
               <p class="card-text">{{ paquete['descripcion'] }}</p>

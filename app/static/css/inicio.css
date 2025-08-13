@@ -30,7 +30,7 @@
   overflow: hidden;
 }
 
-.card-img-top {
+.img-fluid {
   height: 600px; /* Ajustá según lo que se vea mejor */
   object-fit: cover;
   width: 100%;
