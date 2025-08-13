@@ -3,14 +3,18 @@
 {% block head %}
   <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css') }}">
-
 {% endblock %}
 
 {% block content %}
   <!-- 🔷 Menú principal personalizado -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-success py-2 px-3">
-    <div class="container-fluid justify-content-center">
-      <ul class="navbar-nav flex-wrap justify-content-center">
+<nav class="navbar navbar-expand-lg navbar-dark bg-success px-3">
+  <div class="container">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-center" id="menuPrincipal">
+      <ul class="navbar-nav flex-wrap justify-content-center gap-2">
         <li class="nav-item"><a class="nav-link text-white" href="#">VERANO</a></li>
         <li class="nav-item"><a class="nav-link text-white" href="#">PROMOCIONES</a></li>
         <li class="nav-item"><a class="nav-link text-white" href="#">GRANDES VIAJES</a></li>
@@ -23,7 +27,8 @@
         <li class="nav-item"><a class="nav-link text-white" href="#">INTERNACIONAL</a></li>
       </ul>
     </div>
-  </nav>
+  </div>
+</nav>
 
   <!-- 🖼️ Banner principal -->
   <div class="container-fluid p-0">
@@ -43,7 +48,8 @@
       {% for paquete in PaquetesViaje %}
         <div class="col-md-4 mb-4">
           <div class="card h-100 shadow-sm">
-            <img src="{{ url_for('static', filename='img/' + paquete['imagen']) }}" class="img-fluid" alt="{{ paquete['destino'] }}">
+            <img src="{{ url_for('static', filename='img/' + paquete['imagen']) }}" class="img-fluid w-100" style="height: 250px; object-fit: cover;" alt="{{ paquete['destino'] }}">
+
             <div class="card-body">
               <h5 class="card-title">{{ paquete['destino'] }}</h5>
               <p class="card-text">{{ paquete['descripcion'] }}</p>

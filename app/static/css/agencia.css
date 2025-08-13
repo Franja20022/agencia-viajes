@@ -1,0 +1,45 @@
+/* Banner principal */
+.banner-playa {
+  background-image: url('../img/playa.jpg'); /* Ajustá el nombre si es distinto */
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  position: relative;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Cards */
+.card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.card-text {
+  font-size: 0.95rem;
+}
+
+/* Responsive ajustes */
+@media (max-width: 576px) {
+  .banner-playa {
+    height: 250px;
+  }
+
+  .card img {
+    height: 180px !important;
+  }
+
+  .card-title {
+    font-size: 1.1rem;
+  }
+
+  .card-text {
+    font-size: 0.9rem;
+  }
+
+  .btn {
+    font-size: 0.95rem;
+  }
+}

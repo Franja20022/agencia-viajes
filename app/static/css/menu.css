@@ -89,3 +89,15 @@ a[aria-expanded="true"] .menu-lines .line3 {
   background-color: #444; /* Fondo al pasar el mouse */
   color: #fff;            /* Texto blanco al hacer hover */
 }
+
+@media (max-width: 576px) {
+  .navbar-nav .nav-link {
+    padding: 8px 12px;
+    font-size: 0.95rem;
+  }
+
+  .navbar {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
