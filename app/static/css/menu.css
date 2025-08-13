@@ -90,6 +90,7 @@ a[aria-expanded="true"] .menu-lines .line3 {
   color: #fff;            /* Texto blanco al hacer hover */
 }
 
+/*Responsive*/
 @media (max-width: 576px) {
   .navbar-nav .nav-link {
     padding: 8px 12px;
